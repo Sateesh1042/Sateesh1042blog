@@ -3,7 +3,7 @@ import {doc, deleteDoc } from "firebase/firestore";
 import { auth,db } from "../firebase/config";
 
 const PostCard = ({post,toggle,setToggle}) => {
-  const {id,title, description,name} = post;
+  const {id,sid,title, description,name} = post;
   const isAuth = JSON.parse(localStorage.getItem("isAuth"));
 
   async function handleDelete(){
@@ -18,7 +18,7 @@ const PostCard = ({post,toggle,setToggle}) => {
       <p className="description">{description}</p>
       <p className="control">
         <span className="author">{name}</span>
-        { isAuth && (id === auth.currentUser.uid) && <span onClick={handleDelete} className="delete"><i className="bi bi-trash3"></i></span>}  
+        { isAuth && (sid === auth.currentUser.uid) && (<span onClick={handleDelete} className="delete"><i className="bi bi-trash3"></i></span>)}  
       </p>
     </div>
   )

@@ -15,7 +15,7 @@ const CreatePost = () => {
       title: event.target.title.value,
       description: event.target.description.value,
       name : auth.currentUser.displayName,
-      id : auth.currentUser.uid
+      sid : auth.currentUser.uid
     }
     await addDoc(postRef,document);
     navigate("/");
